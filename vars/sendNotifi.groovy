@@ -14,7 +14,6 @@ def call(Map config) {
 
   // buildStatus of null means successfull
   buildStatus = config.buildStatus ?: 'SUCCESSFUL'
-  channel = channel ?: '#jenkins'
   buildSuccessChannel = config.buildSuccessChannel ?: '#general'
   buildFailChannel = config.buildFailChannel ?: '#random'
 
