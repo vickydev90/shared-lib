@@ -8,13 +8,13 @@ import net.sf.json.JSONObject;
 import hudson.tasks.test.AbstractTestResultAction;
 import hudson.model.Actionable;
 
-def call(String buildStatus = 'STARTED', String channel='#jenkins', String buildSuccessChannel='#general', String buildFailChannel='#random') {
+def call(String buildStatus = 'STARTED', String channel = '#jenkins', String buildSuccessChannel = '#general', String buildFailChannel = '#random') {
 
   // buildStatus of null means successfull
   buildStatus = buildStatus ?: 'SUCCESSFUL'
   channel = channel ?: '#jenkins'
-  buildSuccessChannel = buildSuccessChannel ?: '#general'
-  buildFailChannel = buildFailChannel ?: '#random'
+  buildSuccessChannel = buildSuccessChannel ? buildSuccessChannel : '#general'
+  buildFailChannel = buildFailChannel ? buildFailChannel : '#random'
 
   // Default values
   def colorName = 'RED'
