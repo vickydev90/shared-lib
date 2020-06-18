@@ -13,8 +13,8 @@ def call(String buildStatus = 'STARTED', String channel = '#jenkins', String bui
   // buildStatus of null means successfull
   buildStatus = buildStatus ?: 'SUCCESSFUL'
   channel = channel ?: '#jenkins'
-  buildSuccessChannel = buildSuccessChannel ?: '#random'
-  buildFailChannel = buildFailChannel ?: '#general'
+  buildSuccessChannel = buildSuccessChannel ?: '#general'
+  buildFailChannel = buildFailChannel ?: '#random'
 
   // Default values
   def colorName = 'RED'
