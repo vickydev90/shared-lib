@@ -8,12 +8,13 @@ import net.sf.json.JSONObject;
 import hudson.tasks.test.AbstractTestResultAction;
 import hudson.model.Actionable;
 
-def call(String buildStatus = 'STARTED', String channel = '#general') {
+def call(String buildStatus = 'STARTED', String channel = '#jenkins', String buildSuccessChannel = '#random', String buildFailChannel = '#general') {
 
   // buildStatus of null means successfull
   buildStatus = buildStatus ?: 'SUCCESSFUL'
   channel = channel ?: '#jenkins'
-
+  buildSuccessChannel = buildSuccessChannel ?: '#random'
+  buildFailChannel = buildFailChannel ?: '#general'
 
   // Default values
   def colorName = 'RED'
@@ -35,12 +36,15 @@ def call(String buildStatus = 'STARTED', String channel = '#general') {
   } else if (buildStatus == 'SUCCESSFUL') {
     color = 'GREEN'
     colorCode = 'good'
+    channel = buildSuccessChannel
   } else if (buildStatus == 'UNSTABLE') {
     color = 'YELLOW'
     colorCode = 'warning'
+    channel = buildFailChannel
   } else {
     color = 'RED'
     colorCode = 'danger'
+    channel = buildFailChannel
   }
 
   // get test results for slack message
