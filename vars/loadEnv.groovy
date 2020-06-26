@@ -1,3 +1,5 @@
+package com.jenkins.library
+
 /*def call(path) {
     properties = new Properties()
     File propertiesFile = new File(path)
