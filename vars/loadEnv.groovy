@@ -9,8 +9,8 @@
     env."${key}" = "${value}"
     }
 }*/
-def call(Map config) {
-  String configPath = config.configFile ? config.configFile : "${env.WORKSPACE}/staging.properties"
+def call() {
+  String configPath = "${env.WORKSPACE}/staging.properties"
   properties = new Properties()
   File propertiesFile = new File(configPath)
   properties.load(propertiesFile.newDataInputStream())
