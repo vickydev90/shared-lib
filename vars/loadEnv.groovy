@@ -1,4 +1,3 @@
-package com.jenkins.library
 
 /*def call(path) {
     properties = new Properties()
@@ -10,9 +9,10 @@ package com.jenkins.library
     String value =(String) properties.getProperty(key)
     env."${key}" = "${value}"
     }
-}
+}*/
+
 def call() {
-  String configPath = "${env.WORKSPACE}/staging.properties"
+  String configPath = readFile "${env.WORKSPACE}/staging.properties"
   properties = new Properties()
   File propertiesFile = new File(configPath)
   properties.load(propertiesFile.newDataInputStream())
@@ -22,9 +22,9 @@ def call() {
   String value =(String) properties.getProperty(key)
   env."${key}" = "${value}"
   }
-}*/
+}
 
-def call() {
+/*def call() {
     def filename = readFile "${env.WORKSPACE}/staging.properties"
     echo "DEBUG: loading filename: $filename"
     env_string = libraryResource filename
@@ -33,4 +33,4 @@ def call() {
     Properties props = new Properties()
     props.load(new ByteArrayInputStream(env_string.getBytes()))
     return props
-}
+}*/
