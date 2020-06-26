@@ -10,7 +10,7 @@
     }
 }*/
 def call(Map config) {
-  String configPath = config.configFile
+  String configPath = config.configFile ? config.configFile : "${env.WORKSPACE}/staging.properties"
   properties = new Properties()
   File propertiesFile = new File(configPath)
   properties.load(propertiesFile.newDataInputStream())
