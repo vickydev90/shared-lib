@@ -1,7 +1,5 @@
-import jenkins.model.*
-jenkins = Jenkins.instance
-
-/*def call(path) {
+def call() {
+    path = "dev/stage.properties"
     properties = new Properties()
     File propertiesFile = new File(path)
     properties.load(propertiesFile.newDataInputStream())
@@ -13,7 +11,7 @@ jenkins = Jenkins.instance
     }
 }
 
-def call() {
+/*def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
   String configPath = "${env.WORKSPACE}/staging.properties"
   //configFile = readFile configPath
@@ -30,7 +28,7 @@ def call() {
   }
 }*/
 
-def call() {
+/*def call() {
     def filename = "${env.WORKSPACE}/staging.properties"
     echo "DEBUG: loading filename: $filename"
     env_string = readFile filename
@@ -39,4 +37,4 @@ def call() {
     Properties props = new Properties()
     props.load(new ByteArrayInputStream(env_string.getBytes()))
     return props
-}
+}*/
