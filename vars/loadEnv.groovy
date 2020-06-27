@@ -20,7 +20,7 @@ def call() {
   writeFile file: 'stage.properties', text: readFile(file: configPath)
 
   properties = new Properties()
-  File propertiesFile = new File(stage.properties)
+  File propertiesFile = new File('stage.properties')
   properties.load(propertiesFile.newDataInputStream())
   Set<Object> keys = properties.keySet();
   for(Object k:keys){
