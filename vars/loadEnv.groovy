@@ -1,8 +1,8 @@
 def call() {
     path = "dev/stage.properties"
+    writeFile file: 'stage.properties', text: readFile(path)
     properties = new Properties()
-    //File propertiesFile = new File(path)
-    File propertiesFile = libraryResource path
+    File propertiesFile = new File('stage.properties')
     properties.load(propertiesFile.newDataInputStream())
     Set<Object> keys = properties.keySet();
     for(Object k:keys){
