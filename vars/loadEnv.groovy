@@ -25,8 +25,8 @@ def call() {
 }*/
 
 def call() {
-    def filename = readFile "${env.WORKSPACE}/staging.properties"
-    echo "DEBUG: loading filename: $filename"
+    def filename = readProperties  file: "${env.WORKSPACE}/staging.properties"
+    echo "DEBUG: loading filename: filename"
     env_string = libraryResource filename
     echo "DEBUG: properties for build:\n$env_string"
 
