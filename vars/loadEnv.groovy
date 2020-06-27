@@ -1,5 +1,5 @@
 def call() {
-    path = "dev/stage.properties"
+    path = "stage.properties"
     writeFile file: 'stage.properties', text: readFile(path)
     properties = new Properties()
     File propertiesFile = new File('stage.properties')
