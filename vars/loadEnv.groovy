@@ -9,24 +9,24 @@
     String value =(String) properties.getProperty(key)
     env."${key}" = "${value}"
     }
-}
+}*/
 
 def call(Map config) {
   String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
-  Map configFile = readFile configPath
+  configFile = readFile configPath
 
   properties = new Properties()
-  File propertiesFile = new File(configFile)
-  properties.load(propertiesFile.newDataInputStream())
+  //File propertiesFile = new File(configFile)
+  properties.load(configFile.newDataInputStream())
   Set<Object> keys = properties.keySet();
   for(Object k:keys){
   String key = (String)k;
   String value =(String) properties.getProperty(key)
   env."${key}" = "${value}"
   }
-}*/
+}
 
-def call() {
+/*def call() {
     def filename = "${env.WORKSPACE}/staging.properties"
     echo "DEBUG: loading filename: $filename"
     env_string = readFile filename
@@ -34,5 +34,5 @@ def call() {
 
     Properties props = new Properties()
     props.load(new ByteArrayInputStream(env_string.getBytes()))
-    //return props
-}
+    return props
+}*/
