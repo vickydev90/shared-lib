@@ -12,7 +12,7 @@
 }*/
 
 def call() {
-  String configPath = readProperties  file: "${env.WORKSPACE}/staging.properties"
+  String configPath = readFileFromWorkspace('staging.properties')
   properties = new Properties()
   File propertiesFile = new File(configPath)
   properties.load(propertiesFile.newDataInputStream())
