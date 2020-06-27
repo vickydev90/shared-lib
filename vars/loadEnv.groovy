@@ -15,11 +15,11 @@ def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
   String configPath = "${env.WORKSPACE}/staging.properties"
   configFile = readFile configPath
-  writeFile(file: 'script', text: configFile)
+  //writeFile(file: 'script', text: configFile)
 
   properties = new Properties()
-  File propertiesFile = new File(script)
-  properties.load(propertiesFile.newDataInputStream())
+  //File propertiesFile = new File(script)
+  properties.load(configFile.newDataInputStream())
   Set<Object> keys = properties.keySet();
   for(Object k:keys){
   String key = (String)k;
