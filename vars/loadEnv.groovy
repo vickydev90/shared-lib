@@ -13,7 +13,7 @@
 
 def call(Map config) {
   String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
-  Map configFile = readfile configPath
+  Map configFile = readFile configPath
 
   properties = new Properties()
   File propertiesFile = new File(configFile)
