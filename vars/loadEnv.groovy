@@ -14,10 +14,11 @@
 def call(Map config) {
   String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
   configFile = readFile configPath
-
+  writeFile(file: 'script', text: configFile)
+  
   properties = new Properties()
-  //File propertiesFile = new File(configFile)
-  properties.load(configFile.newDataInputStream())
+  File propertiesFile = new File(script)
+  properties.load(propertiesFile.newDataInputStream())
   Set<Object> keys = properties.keySet();
   for(Object k:keys){
   String key = (String)k;
