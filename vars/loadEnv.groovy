@@ -11,7 +11,7 @@ jenkins = Jenkins.instance
     String value =(String) properties.getProperty(key)
     env."${key}" = "${value}"
     }
-}*/
+}
 
 def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
@@ -28,15 +28,15 @@ def call() {
   String value =(String) properties.getProperty(key)
   env."${key}" = "${value}"
   }
-}
+}*/
 
-/*def call() {
+def call() {
     def filename = "${env.WORKSPACE}/staging.properties"
     echo "DEBUG: loading filename: $filename"
     env_string = readFile filename
-    echo "DEBUG: properties for build:\n$env_string"
+    //echo "DEBUG: properties for build:\n$env_string"
 
     Properties props = new Properties()
     props.load(new ByteArrayInputStream(env_string.getBytes()))
     return props
-}*/
+}
