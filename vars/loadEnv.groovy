@@ -11,11 +11,12 @@
     }
 }*/
 
-def call(Map config) {
-  String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
+def call() {
+  //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
+  String configPath = "${env.WORKSPACE}/staging.properties"
   configFile = readFile configPath
   writeFile(file: 'script', text: configFile)
-  
+
   properties = new Properties()
   File propertiesFile = new File(script)
   properties.load(propertiesFile.newDataInputStream())
