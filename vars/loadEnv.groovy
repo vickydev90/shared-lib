@@ -1,4 +1,4 @@
-/*def call() {
+def call() {
     path = "dev/stage.properties"
     properties = new Properties()
     File propertiesFile = new File(path)
@@ -11,7 +11,7 @@
     }
 }
 
-def call() {
+/*def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
   String configPath = "${env.WORKSPACE}/staging.properties"
   //configFile = readFile configPath
@@ -38,14 +38,3 @@ def call() {
     props.load(new ByteArrayInputStream(env_string.getBytes()))
     return props
 }*/
-
-def call() {
-    filename = "dev/stage.properties"
-    echo "DEBUG: loading filename: $filename"
-    env_string = libraryResource filename
-    echo "DEBUG: properties for build:\n$env_string"
-
-    Properties props = new Properties()
-    props.load(new ByteArrayInputStream(env_string.getBytes()))
-    return props
-}
