@@ -15,7 +15,7 @@ def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
   String configPath = "${env.WORKSPACE}/staging.properties"
   //configFile = readFile configPath
-  writeFile file: 'stage.properties', text: readFile(configPath)
+  writeFile file: 'stage.properties', text: readFile(file: configPath)
 
   properties = new Properties()
   File propertiesFile = new File(stage.properties)
