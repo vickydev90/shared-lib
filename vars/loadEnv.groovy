@@ -34,5 +34,5 @@ def call() {
 
     Properties props = new Properties()
     props.load(new ByteArrayInputStream(env_string.getBytes()))
-    return props
+    //return props
 }
