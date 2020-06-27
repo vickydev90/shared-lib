@@ -11,10 +11,12 @@
     }
 }*/
 
-def call() {
-  String configPath = readFileFromWorkspace('staging.properties')
+def call(Map config) {
+  String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
+  Map configFile = readfile configPath
+
   properties = new Properties()
-  File propertiesFile = new File(configPath)
+  File propertiesFile = new File(configFile)
   properties.load(propertiesFile.newDataInputStream())
   Set<Object> keys = properties.keySet();
   for(Object k:keys){
