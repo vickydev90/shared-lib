@@ -16,8 +16,8 @@ def call(Map config) {
   Map configFile = readFile configPath
 
   properties = new Properties()
-  File propertiesFile = new File(configFile)
-  properties.load(propertiesFile.newDataInputStream())
+  //File propertiesFile = new File(configFile)
+  properties.load(configFile.newDataInputStream())
   Set<Object> keys = properties.keySet();
   for(Object k:keys){
   String key = (String)k;
