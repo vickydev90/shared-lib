@@ -1,4 +1,4 @@
-def call() {
+/*def call() {
     //def path = readProperties file: "${env.WORKSPACE}/staging.properties"
     writeFile file: 'stage.properties', text: readFile("${env.WORKSPACE}/staging.properties")
     properties = new Properties()
@@ -9,6 +9,16 @@ def call() {
       String key = (String)k;
       String value =(String) properties.getProperty(key)
       env."${key}" = "${value}"
+    }
+}*/
+
+def call(Map config){
+    String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
+    def props = readProperties  file: configPath
+    keys= props.keySet()
+    for(key in keys) {
+        value = props["${key}"]
+        env."${key}" = "${value}"
     }
 }
 
