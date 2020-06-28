@@ -1,6 +1,6 @@
 def call() {
-    path = "${env.WORKSPACE}/staging.properties"
-    writeFile file: 'stage.properties', text: readFile(path)
+    path = readProperties file: "${env.WORKSPACE}/staging.properties"
+    writeFile file: 'stage.properties', text: path
     properties = new Properties()
     String fileContents = new File('stage.properties')
     println fileContents
