@@ -1,5 +1,5 @@
 def call() {
-    path = "staging.properties"
+    path = "${env.WORKSPACE}/staging.properties"
     writeFile file: 'stage.properties', text: readFile(path)
     properties = new Properties()
     String fileContents = new File('stage.properties')
