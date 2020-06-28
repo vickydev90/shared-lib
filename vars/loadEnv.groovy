@@ -15,7 +15,7 @@
 
 def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
-  configPath = libraryResource "stage.properties"
+  configPath = libraryResource "dev/stage.properties"
   //configFile = readFile configPath
   //writeFile file: 'stage.properties', text: configPath
 
