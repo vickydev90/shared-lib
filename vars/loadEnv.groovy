@@ -1,4 +1,4 @@
-def call() {
+/*def call() {
     String path = readProperties file: "${env.WORKSPACE}/staging.properties"
     writeFile file: 'stage.properties', text: path
     properties = new Properties()
@@ -11,9 +11,9 @@ def call() {
     //String key = (String)k;
     //String value =(String) properties.getProperty(key)
     //env."${key}" = "${value}"
-    }
+    }*/
 
-/*def call() {
+def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
   String configPath = "${env.WORKSPACE}/staging.properties"
   //configFile = readFile configPath
@@ -24,13 +24,13 @@ def call() {
   properties.load(propertiesFile.newDataInputStream())
   Set<Object> keys = properties.keySet();
   for(Object k:keys){
-  String key = (String)k;
-  String value =(String) properties.getProperty(key)
-  env."${key}" = "${value}"
+    String key = (String)k;
+    String value =(String) properties.getProperty(key)
+    env."${key}" = "${value}"
   }
 }
 
-def call() {
+/*def call() {
     def filename = "${env.WORKSPACE}/staging.properties"
     echo "DEBUG: loading filename: $filename"
     env_string = readFile filename
