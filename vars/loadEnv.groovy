@@ -12,7 +12,6 @@ def call() {
     //String value =(String) properties.getProperty(key)
     //env."${key}" = "${value}"
     }
-}
 
 /*def call() {
   //String configPath = config.envFile ? config.envFile : "${env.WORKSPACE}/staging.properties"
