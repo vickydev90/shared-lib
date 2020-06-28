@@ -2,13 +2,15 @@ def call() {
     path = "staging.properties"
     writeFile file: 'stage.properties', text: readFile(path)
     properties = new Properties()
-    File propertiesFile = new File('stage.properties')
-    properties.load(propertiesFile.newDataInputStream())
-    Set<Object> keys = properties.keySet();
-    for(Object k:keys){
-    String key = (String)k;
-    String value =(String) properties.getProperty(key)
-    env."${key}" = "${value}"
+    String fileContents = new File('stage.properties')
+    println fileContents
+    //File propertiesFile = new File('stage.properties')
+    //properties.load(propertiesFile.newDataInputStream())
+    //Set<Object> keys = properties.keySet();
+    //for(Object k:keys){
+    //String key = (String)k;
+    //String value =(String) properties.getProperty(key)
+    //env."${key}" = "${value}"
     }
 }
 
