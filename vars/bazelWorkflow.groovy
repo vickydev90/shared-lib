@@ -13,7 +13,7 @@ def call(Map args) {
           if(checkoutSubmodule == true) {
             checkout([
             $class: 'GitSCM',
-            branches: [[name: '*/master'']], 
+            branches: [[name: '*/master']], 
             doGenerateSubmoduleConfigurations: false, 
             extensions: [[
               $class: 'SubmoduleOption', 
