@@ -11,6 +11,7 @@ def call(Map args) {
           checkout scm
         }
         stage('setting env') {
+            println config
             loadEnv(config)
         }  
         stage('Install') {
