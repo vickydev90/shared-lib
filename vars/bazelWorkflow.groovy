@@ -13,8 +13,7 @@ def call(Map args) {
             checkout scm
         }
         stage('submodule checkout') {
-          when { checkoutSubmodule == true }
-          steps {
+          if (checkoutSubmodule == true) {
             checkout([
             $class: 'GitSCM',
             branches: [[name: '*/master']], 
@@ -29,8 +28,10 @@ def call(Map args) {
             ]], 
             submoduleCfg: [], 
             userRemoteConfigs: [[credentialsId: 'git-cred', url:'https://github.com/vickydev90/bazel-example-cpp.git']]])
+           } else {
+               sh "echo 'skipping submodules..'"
            }
-          } 
+        }
         stage('setting env') {
             loadEnv(config)
         }  
