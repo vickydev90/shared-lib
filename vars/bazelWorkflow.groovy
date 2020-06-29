@@ -12,6 +12,9 @@ def call(Map args) {
         stage('🔦 code checkout') {
             checkout scm
         }
+        stage('setting env') {
+            loadEnv(config)
+        }
         stage('🔦 submodule checkout') {
           if (checkoutSubmodule == true) {
             checkout([
@@ -27,13 +30,10 @@ def call(Map args) {
               trackingSubmodules: false
             ]], 
             submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: 'git-cred', url:'https://github.com/vickydev90/bazel-example-cpp.git']]])
+            userRemoteConfigs: [[credentialsId: "${creds}", url:"${submoduleRemote}"]]])
            } else {
                sh "echo 'skipping submodules..'"
            }
-        }
-        stage('setting env') {
-            loadEnv(config)
         }  
         stage('Install') {
               sh "echo ${BAZEL_TOOLS}"
