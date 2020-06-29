@@ -9,8 +9,12 @@ def call(Map args) {
 
   podTemplate(label: label, containers: containers) {
     node(label) {
-        stage('Checkout') {
-          if (checkoutSubmodule == true) {
+        stage('code checkout') {
+            checkout scm
+        }
+        stage('submodule checkout') {
+          when { checkoutSubmodule == true }
+          steps {
             checkout([
             $class: 'GitSCM',
             branches: [[name: '*/master']], 
@@ -25,10 +29,8 @@ def call(Map args) {
             ]], 
             submoduleCfg: [], 
             userRemoteConfigs: [[credentialsId: 'git-cred', url:'https://github.com/vickydev90/bazel-example-cpp.git']]])
-          } else {
-            checkout scm
            }
-        }
+          } 
         stage('setting env') {
             loadEnv(config)
         }  
