@@ -30,7 +30,7 @@ def call(Map args) {
               trackingSubmodules: false
             ]], 
             submoduleCfg: [], 
-            userRemoteConfigs: [[credentialsId: ${creds}, url: ${submoduleRemote}]]])
+            userRemoteConfigs: [[credentialsId: "${creds}", url: "${submoduleRemote}"]]])
            } else {
                sh "echo 'skipping submodules..'"
            }
