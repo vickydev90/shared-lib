@@ -9,10 +9,10 @@ def call(Map args) {
 
   podTemplate(label: label, containers: containers) {
     node(label) {
-        stage('code checkout') {
+        stage('🔦 code checkout') {
             checkout scm
         }
-        stage('submodule checkout') {
+        stage('🔦 submodule checkout') {
           if (checkoutSubmodule == true) {
             checkout([
             $class: 'GitSCM',
