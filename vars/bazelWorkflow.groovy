@@ -16,3 +16,6 @@ def call(Map args) {
         stage('Install') {
               sh "${BAZEL_TOOLS}"
         }
+    }
+  }
+}
