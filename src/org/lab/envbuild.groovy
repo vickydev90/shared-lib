@@ -1,6 +1,6 @@
 package org.lab
 
-def envbuild(config) {
+def envbuild(configPath) {
   def props = readProperties  file: configPath
   keys= props.keySet()
   for(key in keys) {
