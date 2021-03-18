@@ -8,3 +8,21 @@ def envbuild(configPath) {
       env."${key}" = "${value}"
   }
 }
+
+def roleAssume(folderName) {
+  switch(folderName) {
+    case "sandbox":
+        result = "sandbox"
+        break
+    case "prod":
+        result = "prod"
+        break
+    case "nonprod":
+        result = "sup"
+        break
+    default:
+        result = "def"
+        break
+    }
+echo "${result}"
+}
