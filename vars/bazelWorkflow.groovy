@@ -4,7 +4,7 @@ def call(Map args) {
   ]
   
   def label = "jen-agent-${UUID.randomUUID().toString()}"
-  def config = args
+  def config = args.envFile
   boolean checkoutSubmodule = args.checkoutSubmodule
 
   podTemplate(label: label, containers: containers) {
