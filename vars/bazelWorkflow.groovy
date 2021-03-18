@@ -37,6 +37,7 @@ def call(Map args) {
         }  
         stage('Install') {
               sh "echo ${BAZEL_TOOLS}"
+              sh "echo ${ANDROID_HOME}"
         }
     }
   }
