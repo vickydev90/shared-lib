@@ -5,7 +5,7 @@ def call(String args) {
   
   def label = "jen-agent-${UUID.randomUUID().toString()}"
   def config = args
-  boolean checkoutSubmodule = args.checkoutSubmodule
+  //boolean checkoutSubmodule = args.checkoutSubmodule
 
   podTemplate(label: label, containers: containers) {
     node(label) {
