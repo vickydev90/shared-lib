@@ -12,10 +12,10 @@ def envbuild(configPath) {
 def roleAssume(folderName) {
   switch(folderName) {
     case "sandbox":
-        result = "sandbox"
+        result = "${sandbox}"
         break
     case "prod":
-        result = "prod"
+        result = "${prod}"
         break
     case "nonprod":
         result = "sup"
