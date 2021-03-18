@@ -1,10 +1,10 @@
-def call(Map args) {
+def call(String args) {
   def containers = [
     containerTemplate(name: 'jnlp', image: 'jenkins/jnlp-slave', ttyEnabled: true)
   ]
   
   def label = "jen-agent-${UUID.randomUUID().toString()}"
-  def config = args.envFile
+  def config = args
   boolean checkoutSubmodule = args.checkoutSubmodule
 
   podTemplate(label: label, containers: containers) {
