@@ -28,7 +28,7 @@ def roleAssume(folderName) {
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awstest-creds', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
     sh "echo ${AWS_ACCESS_KEY_ID}"
     sh "echo ${AWS_SECRET_ACCESS_KEY}"
-    def val = sh (script: "readFileFromWorkspace(./test.sh(${result}))", returnStdout: true) 
+    def val = sh (script: readFileFromWorkspace("./test.sh(${result})"), returnStdout: true) 
     echo "${val}"
     }
   
