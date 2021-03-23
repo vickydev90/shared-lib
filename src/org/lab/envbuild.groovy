@@ -21,14 +21,14 @@ def roleAssume(folderName) {
         result = "sup"
         break
     default:
-        result = "def"
+        result = "--version"
         break
     }
   echo "${result}"
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awstest-creds', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
     sh "echo ${AWS_ACCESS_KEY_ID}"
     sh "echo ${AWS_SECRET_ACCESS_KEY}"
-    def val = sh (script: "./test.sh", returnStdout: true) 
+    def val = sh (script: "./test.sh(${result})", returnStdout: true) 
     echo "${val}"
     }
   
